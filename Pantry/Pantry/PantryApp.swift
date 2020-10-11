@@ -11,7 +11,15 @@ import SwiftUI
 struct PantryApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            IngredientsView()
+            RecipesView()
+            RecipeView()
         }
+    }
+}
+
+struct PantryApp_Previews: PreviewProvider {
+    static var previews: some View {
+        IngredientsView()
     }
 }
