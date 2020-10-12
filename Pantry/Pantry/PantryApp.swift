@@ -12,8 +12,6 @@ struct PantryApp: App {
     var body: some Scene {
         WindowGroup {
             IngredientsView()
-            RecipesView()
-            RecipeView()
         }
     }
 }
