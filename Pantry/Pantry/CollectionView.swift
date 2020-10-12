@@ -7,32 +7,46 @@
 import SwiftUI
 
 struct CollectionView: View {
-    @State var images = [CollectionViewImage]()
+    var images = [CollectionViewImage]()
+    
+    func getCollectionViewCell(_ i : Int) -> some View {
+        return CollectionViewCell(viewImage: images[i])
+            .background(
+                Image("ISpaghetti")
+                .resizable()
+                .frame(minWidth: 200, minHeight: 200)
+        )
+        .cornerRadius(5)
+        .padding(10)
+    }
+    
+    func hstackImages(_ i : Int) -> HStack<TupleView<(AnyView,AnyView)>> {
+        return
+            (((images.count % 2) != 0) && (i == (images.count - 1))) ?
+                HStack{
+                    AnyView(getCollectionViewCell(i))
+                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(type: "blank", title: "")))
+                }
+            :
+            ((i % 2) == 0) ?
+                HStack {
+                    AnyView(
+                        getCollectionViewCell(i))
+                    AnyView(
+                        getCollectionViewCell(i + 1))
+                }
+            :
+                HStack{
+                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(type: "blank", title: "")))
+                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(type: "blank", title: "")))
+            }
+    }
+    
     var body: some View {
         ScrollView(.vertical) {
             VStack {
-                ForEach(0..<images.count) { i in
-                    ((i % 2) == 0) ?
-                        HStack {
-                            CollectionViewCell(viewImage: images[i])
-                                .background(
-                                    Image(uiImage: images[i].image)
-                                    .resizable()
-                                    .frame(minWidth: 200, minHeight: 200)
-                            )
-                            .cornerRadius(5)
-                            .padding(10)
-                            
-                            CollectionViewCell(viewImage: images[i + 1])
-                                .background(
-                                    Image(uiImage: images[i + 1].image)
-                                        .resizable()
-                                        .frame(minWidth: 200, minHeight: 200)
-                                )
-                                .cornerRadius(5)
-                                .padding(10)
-                        }
-                    : nil
+                ForEach(0..<images.count, id: \.self) { i in
+                        hstackImages(i)
                 }
             }
         }

@@ -11,7 +11,6 @@ struct CollectionViewImage: Identifiable, Hashable {
     var id: String {
         title
     }
-    var image: UIImage
     var type: String
     var title: String
 }
