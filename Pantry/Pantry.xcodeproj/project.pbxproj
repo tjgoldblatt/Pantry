@@ -17,6 +17,8 @@
 		79B688A625349CE700947785 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688A525349CE700947785 /* CollectionView.swift */; };
 		79B688AC25349DA500947785 /* CollectionViewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688AB25349DA500947785 /* CollectionViewImage.swift */; };
 		79B688B025349E8B00947785 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688AF25349E8B00947785 /* CollectionViewCell.swift */; };
+		79B688B32536025500947785 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688B22536025400947785 /* Recipe.swift */; };
+		79B688BB253604C200947785 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688BA253604C200947785 /* AmountView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		79B688A525349CE700947785 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		79B688AB25349DA500947785 /* CollectionViewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewImage.swift; sourceTree = "<group>"; };
 		79B688AF25349E8B00947785 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		79B688B22536025400947785 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		79B688BA253604C200947785 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,8 @@
 				79B688A525349CE700947785 /* CollectionView.swift */,
 				79B688AB25349DA500947785 /* CollectionViewImage.swift */,
 				79B688AF25349E8B00947785 /* CollectionViewCell.swift */,
+				79B688BA253604C200947785 /* AmountView.swift */,
+				79B688B22536025400947785 /* Recipe.swift */,
 				79333ED62533AE7B000098B7 /* RecipesView.swift */,
 				79333ED92533AE8C000098B7 /* RecipeView.swift */,
 			);
@@ -162,6 +168,8 @@
 				79333ED42533AE64000098B7 /* IngredientsView.swift in Sources */,
 				79333ED72533AE7B000098B7 /* RecipesView.swift in Sources */,
 				79333EC42530D0E8000098B7 /* PantryApp.swift in Sources */,
+				79B688BB253604C200947785 /* AmountView.swift in Sources */,
+				79B688B32536025500947785 /* Recipe.swift in Sources */,
 				79B688AC25349DA500947785 /* CollectionViewImage.swift in Sources */,
 				79333EDA2533AE8C000098B7 /* RecipeView.swift in Sources */,
 			);

@@ -8,8 +8,18 @@
 import SwiftUI
 
 struct RecipeView: View {
+    let ingredients : [String: String]
+    let instructions : String
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            ScrollView {
+                ForEach(ingredients.sorted(by: >), id: \.key) { key, value in
+                    Text(key)
+                    Text("Amount: \(value)")
+                }
+                Text("Instructions:\n\(instructions)").padding(.all, 20.0)
+            }
+        }
     }
 }
