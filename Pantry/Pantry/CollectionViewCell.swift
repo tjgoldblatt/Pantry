@@ -16,7 +16,7 @@ struct CollectionViewCell: View {
         AnyView(NavigationLink(destination: AnyView(AmountView(activeIngredients: $activeIngredients, activeIngredient: viewImage.title))) {
         Text(viewImage.title).fontWeight(.semibold).padding([.leading, .trailing, .bottom], 5).frame(minWidth: 100, maxWidth: 150, minHeight: 100, maxHeight: 150)
         })
-        : (recipe != nil) ? AnyView(NavigationLink(destination: AnyView(RecipeView(ingredients: recipe!.ingredients, instructions: recipe!.instructions))) {
+        : (recipe != nil) ? AnyView(NavigationLink(destination: AnyView(RecipeView(ingredients: recipe!.ingredients, instructions: recipe!.instructions, activeIngredients: activeIngredients))) {
             Text(viewImage.title)
                 .fontWeight(.semibold)
                 .padding([.leading, .trailing, .bottom], 5)

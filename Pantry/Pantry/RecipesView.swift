@@ -16,7 +16,7 @@ struct RecipesView: View {
         var filteredRecipes : [Recipe] = []
         for recipe in recipes {
             for ingredient in inputIngredients {
-                if(recipe.ingredients.keys.contains(ingredient.key)) {
+                if(!filteredRecipes.contains(recipe) && recipe.ingredients.keys.contains(ingredient.key)) {
                     filteredRecipes.append(recipe)
                 }
             }

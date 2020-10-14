@@ -19,11 +19,12 @@ struct AmountView: View {
                     self.amount = $0
                     self.activeIngredients[activeIngredient] = $0
                 })
-            TextField("Amount", text: binding).padding(.leading, 20.0).padding(.trailing, 20.0).navigationBarItems(leading: Button(action : {
-                self.mode.wrappedValue.dismiss()
-                activeIngredients[activeIngredient] = amount
-            }){
-                Image(systemName: "plus")
-            }).labelsHidden()
+        TextField("Amount", text: binding).padding(.leading, 20.0).padding(.trailing, 20.0).navigationBarItems(leading: Button("Add to List", action : {
+            self.mode.wrappedValue.dismiss()
+            activeIngredients[activeIngredient] = amount
+        }), trailing: Button("Remove from List", action: {
+            self.mode.wrappedValue.dismiss()
+            activeIngredients.removeValue(forKey: activeIngredient)
+        })).labelsHidden()
     }
 }

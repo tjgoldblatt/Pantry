@@ -12,7 +12,7 @@ struct CollectionView: View {
     @Binding var activeIngredients : [String: String]
     
     func getCollectionViewCell(_ i : Int) -> some View {
-        return CollectionViewCell(viewImage: images[i], recipe: recipes != nil ? recipes![i] : nil, activeIngredients: $activeIngredients)
+        let cell = CollectionViewCell(viewImage: images[i], recipe: recipes != nil ? recipes![i] : nil, activeIngredients: $activeIngredients)
             .background(
                 Image((images[i].type == "Ingredient") ? "ISpaghetti" : "RSpaghetti")
                 .resizable()
@@ -20,6 +20,7 @@ struct CollectionView: View {
         )
         .cornerRadius(5)
         .padding(10)
+        return activeIngredients.keys.contains(images[i].title) ? AnyView(cell.overlay(RoundedRectangle(cornerRadius: 5)                            .stroke(Color.green, lineWidth: 4))) : AnyView(cell);
     }
     
     func hstackImages(_ i : Int) -> HStack<TupleView<(AnyView,AnyView)>> {
