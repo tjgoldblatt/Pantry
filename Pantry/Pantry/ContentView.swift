@@ -9,23 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var searchText = ""
+    @State private var activeIngredients : [String: String] = [:]
 
     var body: some View {
         NavigationView {
-            VStack {
-                HStack {
-                    TextField("Search", text: $searchText)
-                        .padding(.trailing, 20.0)
-                        .padding(.leading, 20.0)
-                    NavigationLink(destination: RecipesView()) {
-                        Text("Recipes Page")
-                            .padding(.trailing, 20.0)
-                            .padding(.leading, 20.0)
-                        
-                    }
-                }
-                IngredientsView(searchText: searchText)
-            }
+            IngredientsView(searchText: searchText, activeIngredients: $activeIngredients)
+                .navigationBarItems(leading: TextField("Search", text: $searchText)
+                    .padding(.trailing, 20.0)
+                    .padding(.leading, 20.0), trailing: NavigationLink(destination: RecipesView(inputIngredients: $activeIngredients, inputFilters: [])) {
+                            Text("Recipes Page")
+                        }
+                )
         }
     }
 }
