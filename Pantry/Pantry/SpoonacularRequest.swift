@@ -33,13 +33,18 @@ struct SpoonacularRequest {
             }
             do{
                 let decoder = JSONDecoder()
+                
                 let recipeResponse = try decoder.decode(RecipeResponse.self, from: jsonData)
+                print("this is the json data \(jsonData)")
                 let recipeDetails = recipeResponse.response
+                
                 completion(.success(recipeDetails))
             } catch {
                 completion(.failure(.cannotProcessData))
             }
         }
+        
+        dataTask.resume()
         
     }
 }
