@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MissingIngredient:Decodable {
+struct MissedIngredient:Decodable {
     var image: String
     var name: String
     var original: String
@@ -21,10 +21,10 @@ struct UsedIngredient:Decodable{
 
 struct RecipeDetail:Decodable{
     var title: String
-    var missingIngredients: [MissingIngredient]
+    var missedIngredients: [MissedIngredient]
     var usedIngredients: [UsedIngredient]
     var image: String
-    var missingIngredientCount: Int
+    var missedIngredientCount: Int
 }
 
 struct RecipeResponse:Decodable{

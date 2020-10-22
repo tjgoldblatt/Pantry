@@ -31,14 +31,14 @@ struct RecipesView: View {
         var ingredients = ""
         if(inputIngredients.count != 0){
             for key in inputIngredients.keys {
-                ingredients += (key == inputIngredients.first?.key) ? key : ",+ \(key)"
+                ingredients += (key == inputIngredients.first?.key) ? key.lowercased() : ",+ \(key.lowercased())"
             }
         }
         
         
         let request = SpoonacularRequest(ingredients: ingredients, number: 10, limitLicense: false, ranking: 1, ignorePantry: true)
         
-        print(request)
+        //print(request)
         
         request.getRecipes{ result in
             switch result {
@@ -48,7 +48,7 @@ struct RecipesView: View {
                 recipes = results
             }
         }
-        print(recipes)
+        
         return Text("")
         
 //        let topRecipes = [recipes[0], recipes[1]]
