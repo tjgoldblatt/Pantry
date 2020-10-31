@@ -25,8 +25,7 @@ struct SpoonacularRequest {
     }
     
     func getRecipes(completion: @escaping(Result<[RecipeDetail], RecipeError>)-> Void) {
-        let defaultSession = URLSession(configuration: .default)
-        let dataTask = defaultSession.dataTask(with: resourceURL){data, _ , _ in
+        let dataTask = URLSession.shared.dataTask(with: resourceURL){data, _ , _ in
             guard let jsonData = data else {
                 completion(.failure(.noDataAvailable))
                 return

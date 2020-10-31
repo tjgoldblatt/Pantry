@@ -13,14 +13,9 @@ struct CollectionView: View {
     
     func getCollectionViewCell(_ i : Int) -> some View {
         let cell = CollectionViewCell(viewImage: images[i], recipe: recipes != nil ? recipes![i] : nil, activeIngredients: $activeIngredients)
-            .background(
-                Image((images[i].type == "Ingredient") ? "ISpaghetti" : "RSpaghetti")
-                .resizable()
-                .frame(minWidth: 200, minHeight: 200)
-        )
         .cornerRadius(5)
         .padding(10)
-        return activeIngredients.keys.contains(images[i].title) ? AnyView(cell.overlay(RoundedRectangle(cornerRadius: 5)                            .stroke(Color.green, lineWidth: 4))) : AnyView(cell);
+        return activeIngredients.keys.contains(images[i].name) ? AnyView(cell.overlay(RoundedRectangle(cornerRadius: 5)                            .stroke(Color.green, lineWidth: 4))) : AnyView(cell);
     }
     
     func hstackImages(_ i : Int) -> HStack<TupleView<(AnyView,AnyView)>> {
@@ -28,7 +23,7 @@ struct CollectionView: View {
             (((images.count % 2) != 0) && (i == (images.count - 1))) ?
                 HStack{
                     AnyView(getCollectionViewCell(i))
-                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(type: "blank", title: ""), recipe: nil, activeIngredients: $activeIngredients))
+                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(name: "", image: "", id: -i, aisle: "", possibleUnits: [], type: ""), recipe: nil, activeIngredients: $activeIngredients))
                 }
             :
             ((i % 2) == 0) ?
@@ -40,8 +35,8 @@ struct CollectionView: View {
                 }
             :
                 HStack{
-                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(type: "blank", title: ""), recipe: nil, activeIngredients: $activeIngredients))
-                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(type: "blank", title: ""), recipe: nil, activeIngredients: $activeIngredients))
+                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(name: "", image: "", id: -i, aisle: "", possibleUnits: [], type: ""), recipe: nil, activeIngredients: $activeIngredients))
+                    AnyView(CollectionViewCell(viewImage: CollectionViewImage(name: "", image: "", id: -i - 1, aisle: "", possibleUnits: [], type: ""), recipe: nil, activeIngredients: $activeIngredients))
             }
     }
     

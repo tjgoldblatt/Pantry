@@ -21,6 +21,7 @@
 		79B688B025349E8B00947785 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688AF25349E8B00947785 /* CollectionViewCell.swift */; };
 		79B688B32536025500947785 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688B22536025400947785 /* Recipe.swift */; };
 		79B688BB253604C200947785 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688BA253604C200947785 /* AmountView.swift */; };
+		79F3A835254DE8B600FB8343 /* AutocompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F3A834254DE8B600FB8343 /* AutocompleteRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		79B688AF25349E8B00947785 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		79B688B22536025400947785 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		79B688BA253604C200947785 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
+		79F3A834254DE8B600FB8343 /* AutocompleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				79333ED62533AE7B000098B7 /* RecipesView.swift */,
 				79333ED92533AE8C000098B7 /* RecipeView.swift */,
 				32630773253A580A004B27F7 /* SpoonacularAPI.swift */,
+				79F3A834254DE8B600FB8343 /* AutocompleteRequest.swift */,
 				32630776253A5A2C004B27F7 /* SpoonacularRequest.swift */,
 			);
 			path = Pantry;
@@ -180,6 +183,7 @@
 				79B688AC25349DA500947785 /* CollectionViewImage.swift in Sources */,
 				79333EDA2533AE8C000098B7 /* RecipeView.swift in Sources */,
 				32630774253A580A004B27F7 /* SpoonacularAPI.swift in Sources */,
+				79F3A835254DE8B600FB8343 /* AutocompleteRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

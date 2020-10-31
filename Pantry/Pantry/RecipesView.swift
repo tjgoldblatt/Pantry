@@ -48,7 +48,7 @@ struct RecipesView: View {
                 recipes = results
             }
         }
-        
+        print(recipes)
         return Text("")
         
 //        let topRecipes = [recipes[0], recipes[1]]
