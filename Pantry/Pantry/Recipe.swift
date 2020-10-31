@@ -17,5 +17,7 @@ struct Recipe: Identifiable, Hashable {
     }
     var title: String
     var image: String
+    var ingredients: [String: String]
+    var instructions: String
     var missedIngredientCount: Int
 }

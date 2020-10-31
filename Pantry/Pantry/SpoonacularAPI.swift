@@ -24,6 +24,7 @@ struct RecipeDetail:Decodable{
     var missedIngredients: [MissedIngredient]
     var usedIngredients: [UsedIngredient]
     var image: String
+    var id: Int
     var missedIngredientCount: Int
 }
 

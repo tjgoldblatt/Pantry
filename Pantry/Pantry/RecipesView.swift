@@ -49,15 +49,14 @@ struct RecipesView: View {
             }
         }
         print(recipes)
-        return Text("")
         
 //        let topRecipes = [recipes[0], recipes[1]]
 //        let filteredRecipes = (inputIngredients.count != 0) ? filterRecipes(inputIngredients, inputFilters): topRecipes
-//        var filteredImages: [CollectionViewImage] = []
-//        filteredRecipes.forEach { (recipe) in
-//            filteredImages.append(recipe.image)
-//        }
-//
-//        return CollectionView(images: filteredImages, recipes: filteredRecipes, activeIngredients: $inputIngredients)
+        var filteredImages: [CollectionViewImage] = []
+        recipes.forEach { (recipe) in
+            filteredImages.append(CollectionViewImage(name: recipe.title, image: recipe.image, id: recipe.title.hashValue, aisle: "", possibleUnits: [], type: "Recipe"))
+        }
+
+        return CollectionView(images: filteredImages, recipes: recipes, activeIngredients: $inputIngredients)
     }
 }

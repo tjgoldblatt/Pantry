@@ -8,7 +8,7 @@ import SwiftUI
 
 struct CollectionView: View {
     var images = [CollectionViewImage]()
-    var recipes : [Recipe]?
+    var recipes : [RecipeDetail]?
     @Binding var activeIngredients : [String: String]
     
     func getCollectionViewCell(_ i : Int) -> some View {

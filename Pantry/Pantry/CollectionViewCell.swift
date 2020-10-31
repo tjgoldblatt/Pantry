@@ -8,8 +8,9 @@ import SwiftUI
 
 struct CollectionViewCell: View {
     let viewImage: CollectionViewImage
-    let recipe : Recipe?
+    let recipe : RecipeDetail?
     @State private var urlImage : UIImage?
+    @State private var instructions : Data?
     @Binding var activeIngredients : [String : String]
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
@@ -17,7 +18,6 @@ struct CollectionViewCell: View {
     }
     
     func downloadImage(from url: URL) {
-        print(url)
         getData(from: url) { data, response, error in
             guard let data = data, error == nil else { return }
             DispatchQueue.main.async() {
@@ -25,10 +25,23 @@ struct CollectionViewCell: View {
             }
         }
     }
+    
+    func downloadInstructions(from url: URL) {
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            DispatchQueue.main.async() {
+                instructions = data
+            }
+        }
+    }
 
     var body: some View {
-        let imageURL = URL(string: "https://spoonacular.com/cdn/ingredients_250x250/\(viewImage.image)")!
-        downloadImage(from: imageURL)
+        let imageURL = viewImage.type == "Ingredient" ? URL(string: "https://spoonacular.com/cdn/ingredients_250x250/\(viewImage.image)")! : URL(string: viewImage.image)!
+        viewImage.type == "Ingredient" ? downloadImage(from: imageURL) : nil
+        
+        
+        let recipeIntructionsUrl = recipe != nil ? URL(string: "https://api.spoonacular.com/recipes/\(recipe!.id)/analyzedInstructions")! : nil
+        recipe != nil ? downloadInstructions(from: recipeIntructionsUrl!) : nil
         
     return (viewImage.type == "Ingredient") ?
         AnyView(NavigationLink(destination: AnyView(AmountView(activeIngredients: $activeIngredients, activeIngredient: viewImage.name))) {
@@ -43,12 +56,21 @@ struct CollectionViewCell: View {
             .resizable()
             .frame(minWidth: 250, minHeight: 250)
         ))
-        : (recipe != nil) ? AnyView(Text("")) /*AnyView(NavigationLink(destination: AnyView(RecipeView(ingredients: recipe!.ingredients, instructions: recipe!.instructions, activeIngredients: activeIngredients))) {
+        : (recipe != nil) ? AnyView(NavigationLink(destination: AnyView(RecipeView(ingredients: activeIngredients, instructions: instructions!, activeIngredients: activeIngredients))) {
             Text(viewImage.name)
                 .fontWeight(.semibold)
                 .padding([.leading, .trailing, .bottom], 5)
                 .frame(minWidth: 100, maxWidth: 150, minHeight: 100, maxHeight: 150)
-        })*/
+        }.background(
+        (urlImage != nil) ?
+        Image(uiImage: urlImage!)
+            .resizable()
+            .frame(minWidth: 250, minHeight: 250)
+            :
+        Image("RSpaghetti")
+        .resizable()
+        .frame(minWidth: 250, minHeight: 250)
+        ))
         :
         nil
   }

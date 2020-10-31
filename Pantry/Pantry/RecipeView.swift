@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeView: View {
     let ingredients : [String: String]
-    let instructions : String
+    let instructions : Data
     let activeIngredients : [String : String]
     
     var body: some View {
@@ -19,7 +19,7 @@ struct RecipeView: View {
                     Text(key).background(activeIngredients.keys.contains(key) ? Color.yellow : Color.white)
                     Text("Amount: \(value)")
                 }
-                Text("Instructions:\n\(instructions)").padding(.all, 20.0)
+                //Text("Instructions:\n\(instructions)").padding(.all, 20.0)
             }
         }
     }
