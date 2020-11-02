@@ -7,13 +7,11 @@
 
 import Foundation
 
-struct MissedIngredient:Decodable {
-    var image: String
-    var name: String
-    var original: String
-}
-
-struct UsedIngredient:Decodable{
+struct Ingredient:Decodable, Identifiable {
+    var id: String {
+        name
+    }
+    
     var image: String
     var name: String
     var original: String
@@ -21,8 +19,8 @@ struct UsedIngredient:Decodable{
 
 struct RecipeDetail:Decodable{
     var title: String
-    var missedIngredients: [MissedIngredient]
-    var usedIngredients: [UsedIngredient]
+    var missedIngredients: [Ingredient]
+    var usedIngredients: [Ingredient]
     var image: String
     var id: Int
     var missedIngredientCount: Int

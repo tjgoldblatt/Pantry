@@ -22,7 +22,7 @@ struct AutocompleteDetail:Decodable{
 
 struct AutocompleteRequest {
     let resourceURL: URL
-    let API_KEY = "ddd9738101fa4e34bb503c2e6968f077"
+    let API_KEY = "22ca2084ea524f559b56b9458272f5e8"
     
     init(query: String, number: Int, metaInformation: Bool, intolerances: Bool){
         // Query: The partial or full ingredient name

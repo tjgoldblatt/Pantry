@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct RecipeView: View {
-    let ingredients : [String: String]
-    let instructions : Data
+    let ingredients : [Ingredient]
+    let instructions : String
     let activeIngredients : [String : String]
     
     var body: some View {
         VStack {
             ScrollView {
-                ForEach(ingredients.sorted(by: >), id: \.key) { key, value in
-                    Text(key).background(activeIngredients.keys.contains(key) ? Color.yellow : Color.white)
-                    Text("Amount: \(value)")
+                ForEach(ingredients) { ingred in
+                    Text(ingred.name).background(activeIngredients.keys.contains(ingred.name) ? Color.yellow : Color.white)
+                    //Text("Amount: \(value)")
                 }
                 //Text("Instructions:\n\(instructions)").padding(.all, 20.0)
             }
