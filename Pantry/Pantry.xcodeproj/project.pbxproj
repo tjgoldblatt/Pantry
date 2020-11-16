@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32630774253A580A004B27F7 /* SpoonacularAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630773253A580A004B27F7 /* SpoonacularAPI.swift */; };
+		32630777253A5A2C004B27F7 /* SpoonacularRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630776253A5A2C004B27F7 /* SpoonacularRequest.swift */; };
 		79333EC42530D0E8000098B7 /* PantryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79333EC32530D0E8000098B7 /* PantryApp.swift */; };
 		79333EC62530D0E8000098B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79333EC52530D0E8000098B7 /* ContentView.swift */; };
 		79333EC82530D0EA000098B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79333EC72530D0EA000098B7 /* Assets.xcassets */; };
@@ -19,9 +21,12 @@
 		79B688B025349E8B00947785 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688AF25349E8B00947785 /* CollectionViewCell.swift */; };
 		79B688B32536025500947785 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688B22536025400947785 /* Recipe.swift */; };
 		79B688BB253604C200947785 /* AmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79B688BA253604C200947785 /* AmountView.swift */; };
+		79F3A835254DE8B600FB8343 /* AutocompleteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79F3A834254DE8B600FB8343 /* AutocompleteRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32630773253A580A004B27F7 /* SpoonacularAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAPI.swift; sourceTree = "<group>"; };
+		32630776253A5A2C004B27F7 /* SpoonacularRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularRequest.swift; sourceTree = "<group>"; };
 		79333EC02530D0E8000098B7 /* Pantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79333EC32530D0E8000098B7 /* PantryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryApp.swift; sourceTree = "<group>"; };
 		79333EC52530D0E8000098B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +41,7 @@
 		79B688AF25349E8B00947785 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		79B688B22536025400947785 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		79B688BA253604C200947785 /* AmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountView.swift; sourceTree = "<group>"; };
+		79F3A834254DE8B600FB8343 /* AutocompleteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,9 @@
 				79B688B22536025400947785 /* Recipe.swift */,
 				79333ED62533AE7B000098B7 /* RecipesView.swift */,
 				79333ED92533AE8C000098B7 /* RecipeView.swift */,
+				32630773253A580A004B27F7 /* SpoonacularAPI.swift */,
+				79F3A834254DE8B600FB8343 /* AutocompleteRequest.swift */,
+				32630776253A5A2C004B27F7 /* SpoonacularRequest.swift */,
 			);
 			path = Pantry;
 			sourceTree = "<group>";
@@ -163,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79B688A625349CE700947785 /* CollectionView.swift in Sources */,
+				32630777253A5A2C004B27F7 /* SpoonacularRequest.swift in Sources */,
 				79333EC62530D0E8000098B7 /* ContentView.swift in Sources */,
 				79B688B025349E8B00947785 /* CollectionViewCell.swift in Sources */,
 				79333ED42533AE64000098B7 /* IngredientsView.swift in Sources */,
@@ -172,6 +182,8 @@
 				79B688B32536025500947785 /* Recipe.swift in Sources */,
 				79B688AC25349DA500947785 /* CollectionViewImage.swift in Sources */,
 				79333EDA2533AE8C000098B7 /* RecipeView.swift in Sources */,
+				32630774253A580A004B27F7 /* SpoonacularAPI.swift in Sources */,
+				79F3A835254DE8B600FB8343 /* AutocompleteRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
