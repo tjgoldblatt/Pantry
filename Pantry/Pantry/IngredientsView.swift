@@ -9,13 +9,9 @@ import SwiftUI
 
 struct IngredientsView: View {
     let searchText: String
-    
     @Binding var activeIngredients : [String : String]
-    let request : [CollectionViewImage]
-    
-    let ingredients : [AutocompleteDetail]
     var body: some View {
-        return CollectionView(images: request, activeIngredients: $activeIngredients)
+        return CollectionView(searchText: searchText, activeIngredients: $activeIngredients)
     }
 }
 

@@ -11,8 +11,6 @@ struct RecipesView: View {
     
     var inputFilters : [String]
     @Binding var inputIngredients : [String : String]
-    @State private var filteredImages =  [CollectionViewImage]()
-    var recipes : [RecipeDetail]
     
 //    func filterRecipes(_ inputIngredients: [String : String], _ inputFilters: [String]) -> [Recipe] {
 //        var filteredRecipes : [Recipe] = []
@@ -27,10 +25,6 @@ struct RecipesView: View {
 //    }
     
     var body: some View {
-        var filteredImages: [CollectionViewImage] = []
-        recipes.forEach { (recipe) in
-            filteredImages.append(CollectionViewImage(name: recipe.title, image: recipe.image, id: recipe.title.hashValue, aisle: "", possibleUnits: [], type: "Recipe"))
-        }
-        return CollectionView(images: filteredImages, recipes: recipes, activeIngredients: $inputIngredients)
+        return CollectionView( activeIngredients: $inputIngredients)
     }
 }
