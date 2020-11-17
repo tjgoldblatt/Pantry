@@ -10,14 +10,9 @@ import SwiftUI
 struct AmountView: View {
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
     @State var amount : String = ""
-    @Binding var activeIngredients : [String : String]
-
-    var activeIngredient : CollectionViewImage
-
-    //lazy var possibleUnits = activeIngredient.possibleUnits
-    //@State private var selectedFrameworkIndex = 0
-    
     @State private var selectedUnit = 0
+    @Binding var activeIngredients : [String : String]
+    var activeIngredient : CollectionViewImage
     
     var body: some View {
         ZStack{
