@@ -27,7 +27,6 @@ struct AmountView: View {
                         self.amount
                     }, set: {
                         self.amount = $0
-                        self.activeIngredients[activeIngredient.name] = $0
                     })
             VStack(spacing: 50){
                 let name = activeIngredient.name
@@ -49,9 +48,8 @@ struct AmountView: View {
                         .padding(.trailing, 20.0)
                         .navigationBarItems(leading: Button("Add to List", action : {
                         self.mode.wrappedValue.dismiss()
-                            activeIngredients[activeIngredient.name] = amount + activeIngredient.possibleUnits[selectedUnit]
-                        print("Here")
-                        print(activeIngredients)
+                            activeIngredients[activeIngredient.name] = amount + " "
+                                + activeIngredient.possibleUnits[selectedUnit]
                     }), trailing: Button("Remove from List", action: {
                         self.mode.wrappedValue.dismiss()
                         activeIngredients.removeValue(forKey: activeIngredient.name)
