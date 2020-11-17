@@ -9,7 +9,7 @@ import SwiftUI
 struct CollectionViewCell: View {
     let viewImage: CollectionViewImage
     let recipe : RecipeDetail?
-    let API_KEY = "ddd9738101fa4e34bb503c2e6968f077"
+    let API_KEY = "84dc3f1e3c12449e90e46a7505f7c867"
     @State private var urlImage : UIImage?
     @Binding var activeIngredients : [String : String]
     
@@ -34,7 +34,7 @@ struct CollectionViewCell: View {
 
     var body: some View {
     let returnContent = (viewImage.type == "Ingredient") ?
-        AnyView(NavigationLink(destination: AnyView(AmountView(activeIngredients: $activeIngredients, activeIngredient: viewImage.name))) {
+        AnyView(NavigationLink(destination: AnyView(AmountView(activeIngredients: $activeIngredients, activeIngredient: viewImage))) {
         Text(viewImage.name).fontWeight(.semibold).padding([.leading, .trailing, .bottom], 5).frame(minWidth: 100, maxWidth: 150, minHeight: 100, maxHeight: 150)
         }.background(
             (urlImage != nil) ?
