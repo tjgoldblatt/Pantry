@@ -41,14 +41,17 @@ struct AmountView: View {
                 HStack{
                     TextField("Amount", text: binding)
                         .font(Font.system(size: 18, weight: .medium, design: .serif))
-                        .textFieldStyle(RoundedBorderTextFieldStyle()).frame(width: 150)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .frame(width: 150)
                         .background(Color.white)
                         .fixedSize()
                         .padding(.leading, 20.0)
                         .padding(.trailing, 20.0)
                         .navigationBarItems(leading: Button("Add to List", action : {
                         self.mode.wrappedValue.dismiss()
-                        activeIngredients[activeIngredient.name] = amount
+                            activeIngredients[activeIngredient.name] = amount + activeIngredient.possibleUnits[selectedUnit]
+                        print("Here")
+                        print(activeIngredients)
                     }), trailing: Button("Remove from List", action: {
                         self.mode.wrappedValue.dismiss()
                         activeIngredients.removeValue(forKey: activeIngredient.name)
