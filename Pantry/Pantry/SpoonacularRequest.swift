@@ -15,7 +15,7 @@ enum RecipeError:Error {
 
 struct SpoonacularRequest {
     let resourceURL: URL
-    let API_KEY = "22ca2084ea524f559b56b9458272f5e8"
+    let API_KEY = "ddd9738101fa4e34bb503c2e6968f077"
     
     init(ingredients:String, number: Int, limitLicense: Bool, ranking: Int, ignorePantry: Bool){
         let resourceString = "https://api.spoonacular.com/recipes/findByIngredients?ingredients=\(ingredients)&number=\(number)&limitLicense=\(limitLicense)&ranking=\(ranking)&ignorePantry=\(ignorePantry)&apiKey=\(API_KEY)"

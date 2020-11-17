@@ -46,7 +46,10 @@ struct CollectionViewCell: View {
             .resizable()
             .frame(minWidth: 250, minHeight: 250)
         ))
-        : (recipe != nil) ? AnyView(NavigationLink(destination: AnyView(RecipeView(ingredients: getRecipeIngredients(), id: recipe!.id, activeIngredients: activeIngredients))) {
+        : (recipe != nil) ? AnyView(NavigationLink(destination: AnyView(RecipeView(ingredients: getRecipeIngredients(), id: recipe!.id, image:  (urlImage != nil) ?
+                                                                                    Image(uiImage: urlImage!)
+                                                                                        :
+                                                                                    Image("RSpaghetti"), activeIngredients: activeIngredients))) {
             Text(viewImage.name)
                 .fontWeight(.semibold)
                 .padding([.leading, .trailing, .bottom], 5)
