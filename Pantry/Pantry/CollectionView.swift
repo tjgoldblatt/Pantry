@@ -11,18 +11,19 @@ struct CollectionView: View {
     var searchText : String?
     @State private var ingredients: [AutocompleteDetail] = []
     @State private var recipes : [RecipeDetail] = []
+    @Binding var inputFilters : [String]
     @Binding var activeIngredients : [String: String]
     
     func setFilteredIngreds() -> [CollectionViewImage] {
         var filtered = [CollectionViewImage]()
         for recipe in self.recipes {
-            filtered.append(CollectionViewImage(name: recipe.title, image: recipe.image, id: recipe.title.hashValue, aisle: "", possibleUnits: [], type: "Recipe"))
+            filtered.append(CollectionViewImage(name: recipe.title != nil ? recipe.title! : "", image: recipe.image != nil ? recipe.image! : "", id: recipe.title.hashValue, aisle: "", possibleUnits: [], type: "Recipe"))
         }
         return filtered
     }
     
     func getRecipes(_ inputIngredients: String) {
-        let request = SpoonacularRequest(ingredients: inputIngredients, number: 10, limitLicense: false, ranking: 1, ignorePantry: true)
+        let request = SpoonacularRequest(ingredients: inputIngredients, filters: inputFilters, number: 25, limitLicense: false, ignorePantry: true)
         
         request.getRecipes{ result in
             switch result {
@@ -60,8 +61,7 @@ struct CollectionView: View {
     
     func getCollectionViewCell(_ i : Int) -> some View {
         let cell = CollectionViewCell(viewImage: images[i], recipe: recipes.count != 0 ? recipes[i] : nil, activeIngredients: $activeIngredients)
-        .cornerRadius(5)
-        .padding(10)
+        .cornerRadius(3)
         return activeIngredients.keys.contains(images[i].name) ? AnyView(cell.overlay(RoundedRectangle(cornerRadius: 5)                            .stroke(Color.green, lineWidth: 4))) : AnyView(cell);
     }
     
@@ -89,7 +89,7 @@ struct CollectionView: View {
     
     var body: some View {
         ScrollView(.vertical) {
-            VStack {
+            VStack(spacing: 10) {
                 ForEach(0..<images.count, id: \.self) { i in
                         hstackImages(i)
                 }
@@ -113,7 +113,7 @@ struct CollectionView: View {
                     images = autocompleteNames(value!)
                 }
             })
-        }
+        }.padding(.horizontal, 10).padding(.vertical, 20)
     }
 }
 

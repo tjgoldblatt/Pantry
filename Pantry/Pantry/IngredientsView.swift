@@ -9,9 +9,10 @@ import SwiftUI
 
 struct IngredientsView: View {
     let searchText: String
+    @Binding var activeFilters : [String]
     @Binding var activeIngredients : [String : String]
     var body: some View {
-        return CollectionView(searchText: searchText, activeIngredients: $activeIngredients)
+        return CollectionView(searchText: searchText, inputFilters: $activeFilters, activeIngredients: $activeIngredients)
     }
 }
 

@@ -48,8 +48,8 @@ struct RecipeView: View {
         VStack{
         let ingredientsView = ScrollView {
             ForEach(ingredients) { ingred in
-                let capitalizedWord = ingred.name.capitalizingFirstLetter()
-                Text(capitalizedWord).background(activeIngredients.keys.contains(ingred.name) ? Color.yellow : nil)
+                let capitalizedWord = ingred.name!.capitalizingFirstLetter()
+                (ingred.name != nil) ? Text(!activeIngredients.keys.contains(ingred.name!) ? capitalizedWord : "\(capitalizedWord): \(activeIngredients[ingred.name!] ?? "0")" ).background(activeIngredients.keys.contains(ingred.name!) ? Color.yellow : nil) : Text("Error").background(Color.white)
             }
         }.frame(width:400, height: 100, alignment: .center)
             
@@ -65,7 +65,7 @@ struct RecipeView: View {
                         .frame(alignment: .topLeading)
                 }
             }
-        }.frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }.frame(width: 300, height: 200, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/).padding(.top, 20)
         
         let noInstructionView = ScrollView {
             ForEach(0..<1) {_ in
@@ -79,14 +79,14 @@ struct RecipeView: View {
                     }
                 }
             }
-        }
+        }.padding(.top, 20)
         
             ScrollView{
             VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/){
             image
-                .cornerRadius(20)
+                .cornerRadius(20).padding(.top, 20)
             Spacer()
-            ingredientsView
+                ingredientsView.padding(.top, 20)
             Spacer()
             (inst.count == 0) ? AnyView(Text("No ingredients found, click link for more information")) : AnyView(instructionsView)
             Spacer()

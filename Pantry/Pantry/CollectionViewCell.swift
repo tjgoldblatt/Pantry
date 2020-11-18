@@ -9,7 +9,7 @@ import SwiftUI
 struct CollectionViewCell: View {
     let viewImage: CollectionViewImage
     let recipe : RecipeDetail?
-    let API_KEY = "84dc3f1e3c12449e90e46a7505f7c867"
+    let API_KEY = "ddd9738101fa4e34bb503c2e6968f077"
     @State private var urlImage : UIImage?
     @Binding var activeIngredients : [String : String]
     
@@ -18,8 +18,8 @@ struct CollectionViewCell: View {
     }
     
     func getRecipeIngredients() -> [Ingredient] {
-        var ingreds =  recipe!.usedIngredients
-        ingreds.append(contentsOf: recipe!.missedIngredients)
+        var ingreds =  recipe!.usedIngredients != nil ? recipe!.usedIngredients! : []
+        ingreds.append(contentsOf: recipe!.missedIngredients != nil ? recipe!.missedIngredients! : [])
         return ingreds
     }
     
@@ -34,35 +34,48 @@ struct CollectionViewCell: View {
 
     var body: some View {
     let returnContent = (viewImage.type == "Ingredient") ?
-        AnyView(NavigationLink(destination: AnyView(AmountView(activeIngredients: $activeIngredients, activeIngredient: viewImage))) {
-        Text(viewImage.name).fontWeight(.semibold).padding([.leading, .trailing, .bottom], 5).frame(minWidth: 100, maxWidth: 150, minHeight: 100, maxHeight: 150)
+        AnyView(NavigationLink(destination: AnyView(AmountView(activeIngredients: $activeIngredients, activeIngredient: viewImage).navigationBarTitleDisplayMode(.inline).toolbar(content: {
+            ToolbarItem(placement: .principal) {
+                HStack{
+                    Text("")
+                    Image("Artboard 1").resizable().frame(maxWidth: 100, maxHeight: 60).padding([.trailing], 30)
+                }
+            }
+        })).navigationBarBackButtonHidden(true)) {
+            Text(viewImage.name.capitalizingFirstLetter()).fontWeight(.semibold).frame(minWidth: 175, maxWidth: 175, minHeight: 175, maxHeight: 175).foregroundColor(.black)
         }.background(
             (urlImage != nil) ?
             Image(uiImage: urlImage!)
                 .resizable()
-                .frame(minWidth: 250, minHeight: 250)
+                .frame(minWidth: 175, minHeight: 175).opacity(0.6)
                 :
             Image("ISpaghetti")
             .resizable()
-            .frame(minWidth: 250, minHeight: 250)
+            .frame(minWidth: 175, minHeight: 175).opacity(0.6)
         ))
-        : (recipe != nil) ? AnyView(NavigationLink(destination: AnyView(RecipeView(ingredients: getRecipeIngredients(), id: recipe!.id, image:  (urlImage != nil) ?
+        : (recipe != nil) ? AnyView(NavigationLink(destination: AnyView(RecipeView(ingredients: getRecipeIngredients(), id: recipe!.id != nil ? recipe!.id! : -1, image:  (urlImage != nil) ?
                                                                                     Image(uiImage: urlImage!)
                                                                                         :
-                                                                                    Image("RSpaghetti"), activeIngredients: activeIngredients))) {
-            Text(viewImage.name)
+                                                                                    Image("RSpaghetti"), activeIngredients: activeIngredients).navigationBarTitleDisplayMode(.inline).toolbar(content: {
+                                                                                        ToolbarItem(placement: .principal) {
+                                                                                            HStack{
+                                                                                                Text("")
+                                                                                                Image("Artboard 1").resizable().frame(maxWidth: 100, maxHeight: 60).padding([.trailing], 30)
+                                                                                            }
+                                                                                        }
+                                                                                    }))) {
+            Text(viewImage.name.capitalizingFirstLetter())
                 .fontWeight(.semibold)
-                .padding([.leading, .trailing, .bottom], 5)
-                .frame(minWidth: 100, maxWidth: 150, minHeight: 100, maxHeight: 150)
+                .frame(minWidth: 175, maxWidth: 175, minHeight: 175, maxHeight: 175).foregroundColor(.black)
         }.background(
         (urlImage != nil) ?
         Image(uiImage: urlImage!)
             .resizable()
-            .frame(minWidth: 250, minHeight: 250)
+            .frame(minWidth: 175, minHeight: 175).opacity(0.5)
             :
         Image("RSpaghetti")
         .resizable()
-        .frame(minWidth: 250, minHeight: 250)
+        .frame(minWidth: 175, minHeight: 175).opacity(0.5)
         ))
         :
         nil

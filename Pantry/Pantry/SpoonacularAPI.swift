@@ -8,24 +8,24 @@
 import Foundation
 
 struct Ingredient:Decodable, Identifiable {
-    var id: String {
+    var id: String? {
         name
     }
     
-    var image: String
-    var name: String
-    var original: String
+    var image: String?
+    var name: String?
+    var original: String?
 }
 
 struct RecipeDetail:Decodable{
-    var title: String
-    var missedIngredients: [Ingredient]
-    var usedIngredients: [Ingredient]
-    var image: String
-    var id: Int
-    var missedIngredientCount: Int
+    var title: String?
+    var missedIngredients: Array<Ingredient>?
+    var usedIngredients: Array<Ingredient>?
+    var image: String?
+    var id: Int?
+    var missedIngredientCount: Int?
 }
 
 struct RecipeResponse:Decodable{
-    var response: [RecipeDetail]
+    var results: Array<RecipeDetail>?
 }

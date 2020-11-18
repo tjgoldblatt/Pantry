@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		32630774253A580A004B27F7 /* SpoonacularAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630773253A580A004B27F7 /* SpoonacularAPI.swift */; };
 		32630777253A5A2C004B27F7 /* SpoonacularRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32630776253A5A2C004B27F7 /* SpoonacularRequest.swift */; };
+		792A8E6E2564863000729A69 /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792A8E6D2564863000729A69 /* FilterView.swift */; };
 		79333EC42530D0E8000098B7 /* PantryApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79333EC32530D0E8000098B7 /* PantryApp.swift */; };
 		79333EC62530D0E8000098B7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79333EC52530D0E8000098B7 /* ContentView.swift */; };
 		79333EC82530D0EA000098B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 79333EC72530D0EA000098B7 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		32630773253A580A004B27F7 /* SpoonacularAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularAPI.swift; sourceTree = "<group>"; };
 		32630776253A5A2C004B27F7 /* SpoonacularRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpoonacularRequest.swift; sourceTree = "<group>"; };
+		792A8E6D2564863000729A69 /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		79333EC02530D0E8000098B7 /* Pantry.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pantry.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79333EC32530D0E8000098B7 /* PantryApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PantryApp.swift; sourceTree = "<group>"; };
 		79333EC52530D0E8000098B7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			children = (
 				79333EC32530D0E8000098B7 /* PantryApp.swift */,
 				79333EC52530D0E8000098B7 /* ContentView.swift */,
+				792A8E6D2564863000729A69 /* FilterView.swift */,
 				79333EC72530D0EA000098B7 /* Assets.xcassets */,
 				79333ECC2530D0EA000098B7 /* Info.plist */,
 				79333EC92530D0EA000098B7 /* Preview Content */,
@@ -171,6 +174,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				792A8E6E2564863000729A69 /* FilterView.swift in Sources */,
 				79B688A625349CE700947785 /* CollectionView.swift in Sources */,
 				32630777253A5A2C004B27F7 /* SpoonacularRequest.swift in Sources */,
 				79333EC62530D0E8000098B7 /* ContentView.swift in Sources */,

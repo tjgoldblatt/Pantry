@@ -16,7 +16,7 @@ struct AmountView: View {
     
     var body: some View {
         ZStack{
-            Color.gray
+            Color(hex: "#f9f9f9")
                 .edgesIgnoringSafeArea(.all)
             let binding = Binding<String>(get: {
                         self.amount
@@ -25,7 +25,7 @@ struct AmountView: View {
                     })
             VStack(spacing: 50){
                 let name = activeIngredient.name
-                Text("Ingredient: \(name)")
+                Text("Ingredient: \(name.capitalizingFirstLetter())")
                     .font(.system(size: 45, weight: .bold, design: .rounded))
                     .multilineTextAlignment(.center)
                 Text("Please enter amount and unit below:")
